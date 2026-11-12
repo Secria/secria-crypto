@@ -1,4 +1,26 @@
-# Secria cryptography
+<p align="center">
+  <a href="https://secria.me">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset=".github/assets/secria-dark.svg">
+      <img src=".github/assets/secria.svg" alt="Secria" width="260">
+    </picture>
+  </a>
+</p>
+
+<h3 align="center">Post-quantum encryption behind Secria Mail and Secria VPN</h3>
+
+<p align="center">
+  <a href="https://github.com/Secria/secria-crypto/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/Secria/secria-crypto/ci.yml?branch=main&label=tests" alt="Tests"></a>
+  <a href="https://pkg.go.dev/github.com/Secria/secria-crypto/go"><img src="https://img.shields.io/badge/go-reference-2C00FF?logo=go&logoColor=white" alt="Go reference"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/licence-AGPL--3.0-2C00FF" alt="Licence: AGPL-3.0"></a>
+</p>
+
+<p align="center">
+  <a href="https://secria.me/whitepaper/mail/">Mail whitepaper</a> ·
+  <a href="https://secria.me/whitepaper/vpn/">VPN whitepaper</a> ·
+  <a href="spec/">Specifications</a> ·
+  <a href="SECURITY.md">Security</a>
+</p>
 
 Specifications and reference implementations of the encryption behind Secria
 Mail and Secria VPN, of the post-quantum signatures between Secria's VPN API
