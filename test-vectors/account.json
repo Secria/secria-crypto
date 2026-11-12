@@ -1,0 +1,138 @@
+{
+  "spec": "spec/account.md",
+  "description": "Account key vectors. Password derivations use the parameters of spec/account.md section 2 and were cross-checked against a second Argon2 implementation; password_derivation_v1 is the version 1 derivation of section 2.1. The recovery proof uses the key set below. Recovery phrases follow BIP-39 with 128 bits of entropy.",
+  "password_derivation": [
+    {
+      "address": "alice@example.com",
+      "password": "correct horse battery staple",
+      "login_hash": "8ffd0b289208334487293d099f5777b7d9e617a56b02b6846f8d87a368765c1f",
+      "vault_key": "b82c918e6ed0f224e77cf764346d6008576bd0b241e47e46bf05ce5ae9cb0791"
+    },
+    {
+      "address": "bob@example.com",
+      "password": "pässwörd ✓ 🔑",
+      "login_hash": "16ff7f91f0764b1d3c640ef8da1dd5210e7854ddc43690a6c84b6b6e955728e2",
+      "vault_key": "67c0a87bae54a5117fcb803a468f1f6fa72b0dce0e23d4be5dd058014a470158"
+    }
+  ],
+  "password_derivation_v1": [
+    {
+      "address": "alice@example.com",
+      "password": "correct horse battery staple",
+      "login_hash": "a665cf7b9bcd0682e5caf062a6a9419aa077a29b6c1072eb",
+      "vault_key": "7abb2dc2a80654e5f15d7996f8d4a6f4184a17fa355022762d65cbad9cd70533"
+    },
+    {
+      "address": "bob@example.com",
+      "password": "pässwörd ✓ 🔑",
+      "login_hash": "31d4b73ec7e914b8a50e50656890af574752c7b03a039b9f",
+      "vault_key": "ffb7b7514b85392be6cdc6f24074d6f8ff66d00f95cd369aecdb56b4be420a02"
+    }
+  ],
+  "key_set": {
+    "x25519_private": "1f262d343b424950575e656c737a81888f969da4abb2b9c0c7ced5dce3eaf1f8",
+    "mlkem_seed": "3e454c535a61686f767d848b9299a0a7aeb5bcc3cad1d8dfe6edf4fb020910171e252c333a41484f565d646b727980878e959ca3aab1b8bfc6cdd4dbe2e9f0f7",
+    "self_key": "5d646b727980878e959ca3aab1b8bfc6cdd4dbe2e9f0f7fe050c131a21282f36",
+    "x25519_public": "e57c695eb2c613c1be54eb615343e82b6a954f88409aa3ad1fa739d0041f1a26",
+    "mlkem_public": "8aa19e1ea84b60b5b021d49119e19f3ae548f9f8780c021ca47869f9c8c449c6338474a474e92dd931b8a322bd56989b93dc7444c8034dec165b472410e49bc8f3cc7755ba2138c28a09619acb39e6b53f1173a790146e91d12204181f049bb3020980b0364f74c752776bb06ed75251a7a6b5f3415d4a108de2b7e1433c4f197544d6bd63d349df6a9bb6b12b0ecb2a6590103cf53887885618db2903eab9a13bb38122a110cca728069d420a4645702bb1d36ac1615119053d428c54a2432f5b4b2f2503110230333a162a7c95740000217c1b4fcf8088ffe401753c36108a0fe4e13ff2601f830cb0504b5f024027701524c309bc0a9b764ea687f5879692ba389e544251d4c3ce502e6d1b71cdacc3b755a0ae7ccb43d326b9a6347a91cb30d505dd4ca4c5a26723c7585bd373fe8b1be40004a613a0a588719c5834487b936b4b9d7afc477ac735306c51f2091efe54bb5b31a2714cb97bb67ca9e7a6f6d149fbf8c3050a0896130c2aa74b031a03677c148667817a40c8bd29a82711591187b78adc3cd1c8234a7780bff126cc00cc0157218beb516c3c700f56b128378db3096d0b36b308e7058bba6ef9f826cbb154a58625eb526e98731c0ee5ac3b510d556c756501028edb1054e1bd3a258bf03c444fec5c1f5b5273f5214307400e11844866aa73628b9678cac638a252c99c4a2917f73c7356057cd709519f507672103c7a149b7ccaad58b4b7ac3090ee99cbf92c23891a190fb12b90e05aa9a98fe8da74cd764a6b5bbbd8388e8d954889266119aa955e88c8c1a88b4c474fba946232d1731d77cddb429ebf99ad7afa0714c0a8879144409483600aaf6c63388c756826c50d67a112d467baeb55c95e09311fe37ea476635a08c9add59e5e58359cf158ae878d7939c00832a0561aaa02a440f5da4665d61874f40afca64b04798806a6889d68708584724f772c2f0a37ab5a965ea9335cb2bc7173a3f039440082c975c5b50b672186e02a6e750d24ba1d185a6a210c13bd350e94c5c3b2b5c9dda015b6804376b2b637c14cbf5c2adc794194296f6ad61efb52307d449caeb907dcd7c203e817978783287760d8f03d298734f5e40cb44a37ffa6421783a8e5b48fd7ab692dd40b08a9773360ae2c71c78693101f822c5b55cd1d402c67c6c166ea09fd88bbb07734e5ab37657b0d823556a2a8b56d03052a726fff6b7fa172c6c8f1605b842c42ebaf7aeaae06c381f63021d662577adb26f7280b68a5c8f07843765a84d875b503b362b5f1c15721a505e4cfabd62a70113218fbc9d237cf61c9203520c072b3252a82235f0c42e3e4cca6b798118450bc3940053091946c962c790231469d175103b226cf26c5ad95269696fbb8f74c45a8981a0963a7a4854b0dab7d47b69c3e283c64f63606e9a03cea1f0c9a2a11ca6d70a48b238590ee258d60f1a0d12a5fa4ca694aaaa07bf6219811cb0fc8591364991470c3b8701b3e39ad531942c5238f804c22fbb76f14bc9d2aba3cc5164a39c43057503070bb8914778a1d35b5ad1bb73f6a23b26a82cc30c440f28fbdb23f913b8df0420767e827aaa4150b5c556f17350b134a5924bba5ebcd88d97f55362fd06025bcec57f24ac80602c780659452897709c26e145c85f9d159966300332354d51286e770bbccb2b0fb1057d79c09f98210921663e6cbcaa0a88a2f4c050039a4d915a6a8f84231e93f456a5c1b6302b6ca7961842e40258610356e6ae302fbf64a50825fd7e9b994bc23b821307acb12705331e581a307b86ed807ca008622a1a6bdde77381858a6f8ebb43b00a978c1b02cbb87cdf2b059e0187bc617888b82dc7b6e40125a0eb48cc5f749b8453cc7c69393e869f04446655389958a58077c3ff14a7dcf8b84899570655391354a4d4d9492c0ea1e74d226af6a382a4900bb69c259318206193e812a5c068b967d938022b42a39620653b95246976565d90766f085852bbba9696216729a96d264db75bdc540843c365103c0af00614bccca4d7b17b68eb3b43438b47329a89ff3a61ac28778d0a3efac8ba2048672caa7c6731a21f5b567b5a81bf43105b12fe5d343e5182c021509e2cc8baca87602a948d7c72b728b0abdb19e79f70d77789da0ea5a6cac005d7a737cb6c704c858bab7308f2694e624dba9f0e33e7cbadcfa560d945f522f29d36a676dd95775f0077190",
+    "key_id": "c3cb0af58db2325b2bfb83310e0bf0efc3f3dd3dea8f544f12724ca893b3ed4f"
+  },
+  "recovery": [
+    {
+      "entropy": "00000000000000000000000000000000",
+      "phrase": [
+        "abandon",
+        "abandon",
+        "abandon",
+        "abandon",
+        "abandon",
+        "abandon",
+        "abandon",
+        "abandon",
+        "abandon",
+        "abandon",
+        "abandon",
+        "about"
+      ],
+      "recovery_key": "d1f641aaae2177321c927c545d13611c51f4e46c4b8ae19268ce44d2030ec677"
+    },
+    {
+      "entropy": "7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f",
+      "phrase": [
+        "legal",
+        "winner",
+        "thank",
+        "year",
+        "wave",
+        "sausage",
+        "worth",
+        "useful",
+        "legal",
+        "winner",
+        "thank",
+        "yellow"
+      ],
+      "recovery_key": "ae63e93818165f7dbc4d8f5a669b8368682a613e1669d2af4950be13ab61be9d"
+    },
+    {
+      "entropy": "80808080808080808080808080808080",
+      "phrase": [
+        "letter",
+        "advice",
+        "cage",
+        "absurd",
+        "amount",
+        "doctor",
+        "acoustic",
+        "avoid",
+        "letter",
+        "advice",
+        "cage",
+        "above"
+      ],
+      "recovery_key": "daf00cef8e9ab04f12a92ad9ebdb83df780883ae1bdd2beaf461ed3e3579add6"
+    },
+    {
+      "entropy": "ffffffffffffffffffffffffffffffff",
+      "phrase": [
+        "zoo",
+        "zoo",
+        "zoo",
+        "zoo",
+        "zoo",
+        "zoo",
+        "zoo",
+        "zoo",
+        "zoo",
+        "zoo",
+        "zoo",
+        "wrong"
+      ],
+      "recovery_key": "1bc0426a639fe677f46440ce878e5033f97e9746b70a8c2df7bdc83b162ce4ae"
+    },
+    {
+      "entropy": "9e885d952ad362caeb4efe34a8e91bd2",
+      "phrase": [
+        "ozone",
+        "drill",
+        "grab",
+        "fiber",
+        "curtain",
+        "grace",
+        "pudding",
+        "thank",
+        "cruise",
+        "elder",
+        "eight",
+        "picnic"
+      ],
+      "recovery_key": "4defff72b8183a8eaa324e61330fd6ac335edc8c74b48e4ded190dad9b495cb7"
+    }
+  ],
+  "recovery_proof": {
+    "ephemeral_private": "171e252c333a41484f565d646b727980878e959ca3aab1b8bfc6cdd4dbe2e9f0",
+    "ephemeral_public": "f0c598791fadf1337568bd13316c2391a020a555688c34ba091dd9f2d0bacc23",
+    "token": "recovery-challenge-7c1e",
+    "proof": "79484aac9b255c9b358fe23ae86d53e0f0acdb2f6f8c49afaeded0c0c74a706d"
+  }
+}

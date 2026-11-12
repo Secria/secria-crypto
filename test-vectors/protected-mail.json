@@ -1,0 +1,28 @@
+{
+  "spec": "spec/protected-mail.md",
+  "description": "Password-protected mail vectors. Each thread lists its password, salt and iteration count, the thread key and verifier they derive with PBKDF2-HMAC-SHA256, and a message key wrapped under the thread key with the listed nonce. An implementation must derive the same values and produce the same bytes.",
+  "threads": [
+    {
+      "name": "600000 iterations",
+      "password": "correct horse battery staple",
+      "salt": "8130d5e27b4f7fb1d252ccb91dcbbd8b",
+      "iterations": 600000,
+      "thread_key": "2303ddaaf8021b85f4fcb09748f3fcae160d84648ce739c5d287774abfcfd24e",
+      "verifier": "deafd352636f8378ead0a7d334e4bb5f8c6f93804e60221f6285f2643962a3e8",
+      "message_key": "8f920302cb902be65bb3c516cd41d1ca62712db0278f37e34a663bccebb39113",
+      "wrap_nonce": "00639c2ec3e59d147b3afc40",
+      "wrapped_key": "00639c2ec3e59d147b3afc407739ca07c14ab90c1e9d34ccbcce9b0c2668eb5ee2a52c399ab73ae29dc8c670da12faa79b17556798a4cdc3d155e0c1"
+    },
+    {
+      "name": "1200000 iterations",
+      "password": "correct horse battery staple",
+      "salt": "deec1e873d4f356c435967d002505ad1",
+      "iterations": 1200000,
+      "thread_key": "3b98c37a6e318ccd434c18c925e5059ef42ffab1e59e7f8b1adb4846fb287d0a",
+      "verifier": "a8740980ed14d3691d7ede818673c2afdcc64877daa5aa801772565103c34924",
+      "message_key": "b894f6b04b0bcc3594373deebb9a2672e139fc149e10daa6a29f32d9c9ceb5d1",
+      "wrap_nonce": "e0eed2f9d7303f133ac8b88f",
+      "wrapped_key": "e0eed2f9d7303f133ac8b88f404b011ac3db64d09409ed82e5cb85641a5b0025bf2a16e19d7d4d391face5f773066842cf8c03bcefab1630ebc8fe9e"
+    }
+  ]
+}

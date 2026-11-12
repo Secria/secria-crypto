@@ -1,0 +1,113 @@
+{
+  "spec": "spec/mail.md",
+  "description": "Mail formats 1 and 2. Bodies must decrypt to the plaintext in the mode for messages whose format was not recorded, and, where opens_in_v2_only_mode is true, also in the format-2-only mode. Invalid bodies must fail in both modes. Wraps and self wraps must unwrap to the key; wraps must also be reproduced exactly from the listed randomness.",
+  "bodies": [
+    {
+      "name": "format 2",
+      "key": "b2daf1ac851f93b9d4cae72a8bfe7d92eda6e5c0969c8042e6ecba67d284dcda",
+      "plaintext": "436f6e74656e742d547970653a20746578742f706c61696e0d0a0d0a48656c6c6f2e",
+      "blob": "0249ceccb2d9d6386f4aa4afce44c3a4225ea03a3b625483382533bf29bdb06769bafe13379e040e60a48bf50eeb75bd6551235c997b1662b4578000f1ac9d",
+      "format": 2,
+      "opens_in_v2_only_mode": true
+    },
+    {
+      "name": "format 2, empty plaintext",
+      "key": "b2daf1ac851f93b9d4cae72a8bfe7d92eda6e5c0969c8042e6ecba67d284dcda",
+      "plaintext": "",
+      "blob": "02af58bf66144557a67825d470611dc006c0d4be7d3e35cf059cc6d282",
+      "format": 2,
+      "opens_in_v2_only_mode": true
+    },
+    {
+      "name": "format 1",
+      "key": "b2daf1ac851f93b9d4cae72a8bfe7d92eda6e5c0969c8042e6ecba67d284dcda",
+      "plaintext": "436f6e74656e742d547970653a20746578742f706c61696e0d0a0d0a48656c6c6f2e",
+      "blob": "00334eca1b9f0e2c4f256e4602b28e049becc0e59f17c1bf16206c7df9372f00e23d761d5103fbfa7053691fcf27527cbfecb021010df67d11b7a2518d89cb53",
+      "format": 1,
+      "opens_in_v2_only_mode": false
+    },
+    {
+      "name": "format 1, plaintext a multiple of 16 bytes",
+      "key": "b2daf1ac851f93b9d4cae72a8bfe7d92eda6e5c0969c8042e6ecba67d284dcda",
+      "plaintext": "65786163746c79207369787465656e21",
+      "blob": "00b88e42f5c981e4eec0490d8444620fa191db40d6ef46d806b4a3fed4abd11fdaf57464c82b1a6d3bde047d07283d9c",
+      "format": 1,
+      "opens_in_v2_only_mode": false
+    },
+    {
+      "name": "format 1 whose IV begins with 0x02",
+      "key": "b2daf1ac851f93b9d4cae72a8bfe7d92eda6e5c0969c8042e6ecba67d284dcda",
+      "plaintext": "616d626967756f7573207769746820666f726d61742032",
+      "blob": "0205c1b4d50af86c34e0b87cf052198f0060ee7cfbf8ac07196c6914dae439f9feee4384b616abac8ea6d600eb594cc9",
+      "format": 1,
+      "opens_in_v2_only_mode": false
+    }
+  ],
+  "invalid_bodies": [
+    {
+      "name": "empty",
+      "key": "b2daf1ac851f93b9d4cae72a8bfe7d92eda6e5c0969c8042e6ecba67d284dcda",
+      "plaintext": null,
+      "blob": "",
+      "format": 0,
+      "opens_in_v2_only_mode": false
+    },
+    {
+      "name": "format 2 with its tag changed",
+      "key": "b2daf1ac851f93b9d4cae72a8bfe7d92eda6e5c0969c8042e6ecba67d284dcda",
+      "plaintext": null,
+      "blob": "0249ceccb2d9d6386f4aa4afce44c3a4225ea03a3b625483382533bf29bdb06769bafe13379e040e60a48bf50eeb75bd6551235c997b1662b4578000f1ac9c",
+      "format": 0,
+      "opens_in_v2_only_mode": false
+    },
+    {
+      "name": "format 2 truncated to 28 bytes",
+      "key": "b2daf1ac851f93b9d4cae72a8bfe7d92eda6e5c0969c8042e6ecba67d284dcda",
+      "plaintext": null,
+      "blob": "0249ceccb2d9d6386f4aa4afce44c3a4225ea03a3b625483382533bf",
+      "format": 0,
+      "opens_in_v2_only_mode": false
+    },
+    {
+      "name": "format 1 with a partial block",
+      "key": "b2daf1ac851f93b9d4cae72a8bfe7d92eda6e5c0969c8042e6ecba67d284dcda",
+      "plaintext": null,
+      "blob": "00334eca1b9f0e2c4f256e4602b28e049becc0e59f17c1bf16206c7df9372f00e23d761d5103fbfa7053691fcf27527cbfecb021010df67d11b7a2518d89cb",
+      "format": 0,
+      "opens_in_v2_only_mode": false
+    },
+    {
+      "name": "format 1, IV only",
+      "key": "b2daf1ac851f93b9d4cae72a8bfe7d92eda6e5c0969c8042e6ecba67d284dcda",
+      "plaintext": null,
+      "blob": "00334eca1b9f0e2c4f256e4602b28e04",
+      "format": 0,
+      "opens_in_v2_only_mode": false
+    }
+  ],
+  "wraps": [
+    {
+      "name": "recipient wrap",
+      "recipient_x25519_private": "407f0c76c0da56b90cc8740c71f88c281cb7bdb3ed88644617e4fca9a2168813",
+      "recipient_mlkem_seed": "2aec2acaa8ae659215e9a382f55af8e531c1f05975e9b884f013e1f06cd5b9c825bdcb567423d36fdb550a05c1099af13e87496bf6bdb2b9b94ffed22fba69f2",
+      "sender_x25519_public": "30622205940ede8d84d7e24ec9bd927e337a3d357c833e720ef9f03c2741642c",
+      "sender_x25519_private": "b893538b6891eba14d3f351fdc8b13e5e2cfebc973e9d90c5fa6582729a00ed2",
+      "key": "7b139cca2c1da040c15c3beab6ed00859fd39a314477a4a6852fd8bb43cb3275",
+      "encapsulation_seed": "1ad10323dba41cd9d951e548d29caf44def2c58baec03c40b7f87281ab916fa6",
+      "salt": "282d913a693669e6d3d133ed15420579fb2ffd8d7966b758f20c620511b0d50f",
+      "nonce": "6ff3039053930a29c6d27233",
+      "kem_ciphertext": "5df17adfa66ede60aa5bc820ddd7aacbaf860bcd183a8695f6155715d4595097bda5fad1d088a8b583ee4ed641d1e43a6d4c4c2cbe25fcbeb1e082ed19498849de9c01b71b060fb050ebdae7df7c1ff97f3ade74299977bde3aa648b26748d9bbf1f968fbe8eac4f4e0ba7e63b2112e447d4f44383d972607dc760b5bef862e38e64d2171568ac2d9f1408b888b020d405f32bc49571c7dbfcedb7fb272db27e6f80c88c70b7fe365bfe97e91ed2da07139bba015b1cb34b9f151651d05d9b302ce21940977b47280115ac28c5d272bd3bc8de117e7016266fa952d94f11eecc9312c26136a9db7bc74ffd564e05de6a9c836ef77966c35a6b7b0f6c932159b65fff818684306d692712ced25e5014ab8758b4c3a26f4b5168fdb1305886f4fd4e6dc391fab412c01a9917fff0108653f30cbafcbdec713324b877976ac3e28c65a877e79a5fe7b4cbea80e61c97b739a248db48e5ac22fb7d2c6cee77fb0bb4bd03b4897bf1af16dba19119ee7040c09c3e298bc90189312512d12961227c7b3eec9dc8c8e2033f1fa762801e6096caa18331e39e1a589d182ec48013fcd9b628b6dcb9201716909442c58e058e5feea21d391dd0e7e3ff0d89380f99a17d614135ed2a62adc56f3ae8c817c52c172ab0610776a6cf92d530de1213169fa17c13637c7cb5e226d32cc7aebd1e985217ffd33646870485785c24be79b6d212264429c86757620ee8017892d79f37d63697e5be50f9afa67d6eee3e43c1de67126f47591b33aaa4864d735894174b08c8a4dada2b4a8d1f131f67bbbdc30dbcad57b7892af7e7fb06387e99fd50403846d1cbdc1cabc0626a82a5d98cb498753b5691fb812b316a5d943ec0df9f43a4c30821e35f5f640d04dfc02ee65d89d5b9a9007389131a3d45fc71c3b2d0e024c8ca6f16d88b879c7f3f62356ab41798d309632957f9f850db23ed042d95a2e7758be5cad5687f370cf42ea37f441564a6dcb06c3ef6c9a442de339f87c926ecda48cd4e7f1ba39c818bd3dded4e04492bc8e86c87dea244db6223196986931a6d4929a2463087cc4092dcc1b36fef1da170a7361a96db03865618a9465d16e0978513b660a2c933b3cc89776ba2847175127ca82bfb73eb263b84b1612ae2b1a5f437dd706c73d21c9334b722574e84c940307c820d057ecee964d7d0ef200e35ef731b098de1def3d9dc835a65aff7c494c0b987ae96f181cceedd562e7346f7a57fe1f4a40e32e4921697e0496cb7e4a4a61acae7ee282ce02f20d6ddef577865c24890e4a2cc463c7453e0d31ceda8d9a19134efd3bddadeaff0d049421d3464c0bc2fd35cb7abc5c68003778253aaeb51fccf0d775ebbff6916fb36ceb0848f52ae3fc256bdb008dc6488ecffe574330c6b2d0f0847f2c927c5a50bcd45e45405d355b1cabda942a29fe9945c0ea87805e543720a5ca94c4c4cdf4c0bffd659818196e601fa4393462e49dc22f8976a68c44d84dccb39f347506912c14b8c7e22f9dbd2b076cd7e5cbd445eea8b090c10b698ae576d02061fda9f46e4fa5b3100e446a1523b56d4c9755c37bb7c9360a90275597f8475801090d9e8bec52db8cdeaa2655f4955c7860fb43c9597747670b3c83e050bc2abcfa8963b9dda4a5aa7f00aa6982c9d1a10ea918b186bc23afa0a564b3443442331ab4508ddacd0acb05fb2ce38f49dedb2252fcf0a16ab782647b9be2cd7dc5a6ddea95810619d91d5fb082db7c4c4302c1238953b275a0f6b572151200aef95a9dfad34eaaa229b1e72d1b860f3fa793e4a2b7fd3f5af5e66f20acf1884c69d9c582c48bf3691a00182931c820d1e22ed2f3cbb22ac692c65862d8534e2f1a9fdd21a3e6103a3b03d017ce6c7759263edb8a20a9cf1d296a5f123a67c1fa6cb781afa7e18dc0a4aa425c4d62d9ae959130ba63b81b30a3b4a392764554bf8537d0218b534fca808e4848801556566cd7adb4f7cd5a569600151cffd36cf500b066ecbc87b42be5e24228f37d52a9cafb8815a049f640fa1ee8ced2d5a7427113317712b02345d05c59fce1d2ce95e4bc9747b12ef36c0ceb7c4297e31640aceae74cc48304016218c6300ea82b75fadaa4d33dee21b67a3c26ed183ec1c1a93f1f9e2da164fb44d26faeec537d9d5f86d5f7ea339531fdf2e3d6e488f2651c70edfb0d227bb9d1af49d3aab8508f86b4ed2e6c632b306",
+      "wrapped_key": "6ff3039053930a29c6d2723348d76363b2863aa50b96fc3cd6142cfaa6a870d4a4a1a4944ac24a37f9f6840b13f64dde8859ddcddc21f36d548e38c2"
+    }
+  ],
+  "self_wraps": [
+    {
+      "name": "self wrap",
+      "self_key": "6b2704f42b9ce1497e81bf13d5d8ccc2e11f4979dc6a85f3ee06b5675ccf474d",
+      "key": "f2112828367b8f19e11aa91cf9ed9d57a4ef47455d87dae147f005eae5d7d8c2",
+      "salt": "ffa5a4402f876b39e21c24049d610a3d95152866698d64c7d2fa228be02586a8",
+      "nonce": "78dbfc8bc791ac5460e4629c",
+      "wrapped_key": "78dbfc8bc791ac5460e4629c981d5c7b66d981af25e1edf62433d1ae786ad366b14dc83e39475a60b9c15fc61c75f2a847dc589a9781ac9bea4f58da"
+    }
+  ]
+}
